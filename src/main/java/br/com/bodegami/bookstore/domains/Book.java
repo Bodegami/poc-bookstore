@@ -1,4 +1,4 @@
-package br.com.bodegami.bookstore.domain;
+package br.com.bodegami.bookstore.domains;
 
 import java.math.BigDecimal;
 

@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.bodegami.bookstore.domain.Book;
+import br.com.bodegami.bookstore.domains.Book;
+import br.com.bodegami.bookstore.domains.dto.BookRequest;
 import br.com.bodegami.bookstore.repositories.BookRepository;
 
 @RestController
@@ -21,10 +22,11 @@ public class BookController {
 
 
 	@PostMapping(value = "/add")
-	public ResponseEntity<Book> adicionaLivro(@RequestBody Book book) {
-		Book bookSaved = repository.save(book);
+	public ResponseEntity<Book> adicionaLivro(@RequestBody BookRequest bookRequest) {
+		Book book = bookRequest.toModel();
+		repository.save(book);
 		
-		return ResponseEntity.ok(bookSaved);
+		return ResponseEntity.ok(book);
 		
 	}
 	
