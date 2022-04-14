@@ -34,7 +34,6 @@ public class Book {
 	}
 
 	public Book(String name, String ispb, String author, BigDecimal price) {
-		super();
 		this.name = name;
 		this.ispb = ispb;
 		this.author = author;
